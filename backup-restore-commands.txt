@@ -1,0 +1,13 @@
+# MongoDB Advanced Assignment: Backup and Restore
+
+# 1. Create a compressed archive of the working database
+mongodump --db company_advanced --archive=company_advanced.archive --gzip
+
+# 2. Restore the archived namespaces into a new database
+mongorestore --drop --archive=company_advanced.archive --gzip \
+  --nsFrom="company_advanced.*" \
+  --nsTo="company_advanced_restore.*"
+
+# 3. Verify restored collection counts
+use company_advanced_restore
+db.employees.countDocuments()
