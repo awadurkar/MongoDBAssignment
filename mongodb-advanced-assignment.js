@@ -89,7 +89,6 @@ db.employees.insertOne({
 // Task 2: Advanced Array Queries and Updates
 // 2.1 Find One Matching Array Object
 // Use $elemMatch to find employees whose certifications contain the same object with name: "MongoDB" and status: "Active".
-print("2.1: Find employee with MongoDB certificate status Active");
 db.employees.findOne(
     { certifications:
         { $elemMatch:
@@ -163,7 +162,6 @@ db.departments.insertMany([
 ]);
 
 // 4.1 Join Employees with Departments
-
 db.employees.aggregate([
 {
     $lookup: {
